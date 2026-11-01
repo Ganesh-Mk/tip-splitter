@@ -26,3 +26,7 @@ Shares are shown to 2 decimal places (paise). The last person may pay a paisa mo
 ## Round up
 
 Tick **Round each share up to the next ₹10** to make cash payments easy: ₹437 becomes ₹440.
+
+## Reset
+
+The **Reset** button restores the default values (₹1200, 10%, 3 people) and clears the result.
