@@ -51,3 +51,9 @@ document.getElementById("tip-form").addEventListener("submit", (event) => {
     result.textContent = err.message;
   }
 });
+
+// Reset: restore the default values and clear the result.
+document.getElementById("reset").addEventListener("click", () => {
+  document.getElementById("tip-form").reset();
+  document.getElementById("result").textContent = "";
+});
