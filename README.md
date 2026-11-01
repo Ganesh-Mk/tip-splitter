@@ -18,3 +18,7 @@ No build step. Open `index.html` in a browser.
 ## Example
 
 A bill of ₹1200 with a 10% tip, split between 3 people, comes to ₹440.00 each.
+
+## Rounding
+
+Shares are shown to 2 decimal places (paise). The last person may pay a paisa more or less when the total does not split evenly.
