@@ -13,6 +13,7 @@ function splitBill(bill, tipPercent, people) {
   }
   const tip = bill * (tipPercent / 100);
   const total = bill + tip;
+  console.log("splitBill", { bill, tipPercent, people, total });
   return { tip, total, perPerson: total / people };
 }
 
