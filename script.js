@@ -16,6 +16,17 @@ function splitBill(bill, tipPercent, people) {
   return { tip, total, perPerson: total / people };
 }
 
+/**
+ * Round an amount up to the next multiple of `step` (e.g. 437 -> 440 with step 10).
+ * Handy when friends pay in cash and nobody has coins.
+ * @param {number} amount
+ * @param {number} [step=10]
+ * @returns {number}
+ */
+function roundUpTo(amount, step = 10) {
+  return Math.ceil(amount / step) * step;
+}
+
 /** Format a number as Indian rupees, e.g. 440 -> "₹440.00". */
 function formatRupees(amount) {
   return "₹" + amount.toFixed(2);
@@ -26,10 +37,12 @@ document.getElementById("tip-form").addEventListener("submit", (event) => {
   const bill = Number(document.getElementById("bill").value);
   const tipPercent = Number(document.getElementById("tip").value);
   const people = Number(document.getElementById("people").value);
+  const roundUp = document.getElementById("round-up").checked;
   const result = document.getElementById("result");
 
   try {
-    const { tip, total, perPerson } = splitBill(bill, tipPercent, people);
+    const { tip, total, perPerson: exact } = splitBill(bill, tipPercent, people);
+    const perPerson = roundUp ? roundUpTo(exact) : exact;
     result.innerHTML =
       `Tip: ${formatRupees(tip)}<br>` +
       `Total: ${formatRupees(total)}<br>` +
